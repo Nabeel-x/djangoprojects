@@ -1,0 +1,35 @@
+*{
+    margin-left: 5px;
+}
+body{
+    background-color: black;
+    z-index: -999;
+}
+#pdfbody{
+    background-color: white;
+    padding: 30px;
+    margin: 0;
+    width: 600px;
+    height: 100vh;
+    margin: auto;
+    left: 0;
+}
+#heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imp{
+    color: red;
+    text-decoration: underline;
+}
+.meta {
+    font-weight: bold;
+}
+.aim{
+    margin-top: 3vh;
+    margin-left: 40px;
+}
+.content {
+    margin-left: 20px;
+}
