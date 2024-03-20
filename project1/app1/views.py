@@ -11,7 +11,7 @@ def index(request):
 
 def register(request):
     Rform = RegisterForm(request.POST)
-    dict={'Regform':Rform}
+    dict = {'Rform':Rform}
     if request.method == "POST":
         if Rform.is_valid():
             user=Rform.save()
@@ -22,3 +22,18 @@ def register(request):
         else:
             messages.error(request,'Invalid form submission..')
     return render(request,'Register.html',dict)
+
+def login(request):
+    Lform = LoginForm(request.POST)
+    dict={'Lform':Lform}
+    if request.method == "POST":
+        uname = Lform['username'].value();
+        pword = Lform['password'].value();
+        user = authenticate(username=uname,password=pword)
+        if user is not None:
+            return redirect('index')
+        else:
+            messages.error(request, 'Incorrect username and / or password....')
+            return render(request, 'Login.html',dict)
+    return render(request,'Login.html',dict)
+    

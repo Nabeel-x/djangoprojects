@@ -1,21 +1,22 @@
-{% load static %}
-{% load widget_tweaks %}
-
 <html>
+    {% load static %}
+    {% load widget_tweaks %}    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'Register.css' %}">
 </head>
 <body>
     <form action="{% url 'register' %}" method = "POST">
+        <h3>Register</h3>
         {% csrf_token %}
-        Username {% render_field Rform.username %}<br>
-        Email {% render_field Rform.email %}<br>
-        Password {% render_field Rform.password %}<br>
-        Firstname {% render_field Rform.first_name %}<br>
-        Lastname {% render_field Rform.last_name %}<br>
-        <button type = "submit">Register</button>
+        {% render_field Rform.username placeholder='username' %}<br>
+        {%render_field Rform.password placeholder='password'%}<br>
+        {%render_field Rform.email placeholder='email'%}<br>
+        {%render_field Rform.first_name placeholder='firstname'%}<br>
+        {%render_field Rform.last_name placeholder='lastname'%}<br>
+        <center><button type="submit">submit</button></center>
     </form>
     {%if messages %}
         {% for message in messages%}

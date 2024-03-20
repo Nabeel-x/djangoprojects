@@ -8,6 +8,12 @@ class RegisterForm(forms.ModelForm):
         fields=['username','email','password','first_name','last_name',]
         widgets={
             'password':forms.PasswordInput(),
-            'first_name':forms.TextInput(),
             'email':forms.EmailInput()
-        }
+                }
+        
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=65)
+    password = forms.CharField(max_length=65)
+    widgets={
+        'password':forms.PasswordInput(),
+    }
